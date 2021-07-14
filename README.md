@@ -39,7 +39,6 @@ module.exports = {
 
 ## 例子
 
-插件做了两件事：
 1. 批量生成expose对象
 2. 调整expose namescope使其符合`emp-tune-dts-plugin`的类型规则。
 
