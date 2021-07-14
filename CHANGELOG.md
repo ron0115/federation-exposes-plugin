@@ -1,0 +1,22 @@
+# v0.0.4 (Wed Jul 14 2021)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Ron0115 ([@ron0115](https://github.com/ron0115)), for all your work!
+
+#### ⚠️ Pushed to `master`
+
+- chore: release ([@ron0115](https://github.com/ron0115))
+- chore: docs ([@ron0115](https://github.com/ron0115))
+- chore: fix ([@ron0115](https://github.com/ron0115))
+- chore: delete dist ([@ron0115](https://github.com/ron0115))
+- fix: filename expose ([@ron0115](https://github.com/ron0115))
+- chore: action ([@ron0115](https://github.com/ron0115))
+- chore: init ([@ron0115](https://github.com/ron0115))
+
+#### Authors: 1
+
+- Ron0115 ([@ron0115](https://github.com/ron0115))
+
+---
+
