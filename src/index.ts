@@ -1,13 +1,11 @@
-/* eslint-disable no-constructor-return */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const glob = require('glob')
-const path = require('path')
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
-// Const { dependencies } = require('../package.json')
 
-const returnPaths = (globs = [], storiesExtension = /\.?stories\./) => {
+import glob from 'glob'
+import path from 'path'
+import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin'
+
+const returnPaths = (globs:string[] = [], storiesExtension = /\.?stories\./) => {
   return globs
-    .reduce((previousValue, currentValue) => {
+    .reduce((previousValue: string[], currentValue) => {
       return [...previousValue, ...glob.sync(currentValue)]
     }, [])
     .filter(p => !new RegExp(storiesExtension).test(p))
@@ -17,6 +15,10 @@ const prepareExposesObject = ({
   paths = [],
   removePrefix = './src/',
   exclude = /\.?stories\./
+}: {
+  paths?: string[]
+  removePrefix?: string
+  exclude?: RegExp
 }) => {
   const files = returnPaths(paths, exclude)
 
@@ -38,24 +40,35 @@ const prepareExposesObject = ({
   )
 }
 
-const returnRemotes = remotes =>
+const returnRemotes = (remotes: string[]) =>
   remotes.reduce((prev, curr) => {
     return { ...prev, [curr]: curr }
   }, {})
 
-const prepareRemotesObject = remotes =>
+const prepareRemotesObject = (remotes: string[] | Record<string, string>) =>
   // eslint-disable-next-line no-nested-ternary
   Array.isArray(remotes) 
     ? { remotes: returnRemotes(remotes) } 
     : (typeof remotes === 'object' ? { remotes } : {})
 
+type Options = {
+  name: string
+  exposesOpts?: {
+    paths?: string[] | string
+    exclude?: RegExp
+    removePrefix?: string
+  },
+  remotes?: string[]
+  shared?: Record<string, string>
+  filename?: string
+}
 const returnMFConfig = ({
   name = 'app',
   exposesOpts = {},
   remotes = [],
-  shared,
-  filename
-}) => ({
+  shared = {},
+  filename = ''
+}: Options) => ({
   name,
   library: { type: 'var', name },
   filename: filename || `${name}.js`,
@@ -78,7 +91,7 @@ const returnMFConfig = ({
     ...shared
   },
   ...prepareExposesObject({
-    paths: Array.isArray(exposesOpts) ? exposesOpts : exposesOpts.paths,
+    paths: Array.isArray(exposesOpts) ? exposesOpts : [],
     exclude: exposesOpts.exclude,
     removePrefix: exposesOpts.removePrefix
   }),
@@ -86,7 +99,8 @@ const returnMFConfig = ({
 })
 
 class FederationExposesPlugin {
-  constructor(options) {
+  constructor(options: Options) {
+    // eslint-disable-next-line no-constructor-return
     return new ModuleFederationPlugin(returnMFConfig(options))
   }
 }
