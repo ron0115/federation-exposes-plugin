@@ -1,6 +1,6 @@
 {
   "name": "federation-exposes-plugin",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "generate exposes object for module federaiton",
   "license": "MIT",
   "author": "liangzhirong <liangzr0115@gmail.com>",
