@@ -44,17 +44,21 @@ const returnRemotes = remotes =>
   }, {})
 
 const prepareRemotesObject = remotes =>
-  remotes.length > 0 ? { remotes: returnRemotes(remotes) } : {}
+  // eslint-disable-next-line no-nested-ternary
+  Array.isArray(remotes) 
+    ? { remotes: returnRemotes(remotes) } 
+    : (typeof remotes === 'object' ? { remotes } : {})
 
 const returnMFConfig = ({
   name = 'app',
   exposesOpts = {},
   remotes = [],
-  shared
+  shared,
+  filename
 }) => ({
   name,
   library: { type: 'var', name },
-  filename: 'ge_components.js',
+  filename: filename || `${name}.js`,
   // Shared: returnShared(shared),
   shared: {
     // ...dependencies,
