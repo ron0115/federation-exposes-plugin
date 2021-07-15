@@ -1,3 +1,17 @@
+# v0.0.5 (Thu Jul 15 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: fix ([@ron0115](https://github.com/ron0115))
+- Merge branch 'master' of https://github.com/ron0115/federation-exposes-plugin ([@ron0115](https://github.com/ron0115))
+- chore: add tslib ([@ron0115](https://github.com/ron0115))
+
+#### Authors: 1
+
+- Ron0115 ([@ron0115](https://github.com/ron0115))
+
+---
+
 # v0.0.4 (Wed Jul 14 2021)
 
 :tada: This release contains work from a new contributor! :tada:
