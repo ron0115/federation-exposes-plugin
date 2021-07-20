@@ -13,13 +13,19 @@ yarn add -D federation-exposes-plugin
 
 ## 使用
 
+1. `paths`：批量生成expose对象的目录集合
+
+2. `removePrefix`：调整expose namescope使其符合`emp-tune-dts-plugin`的类型规则。
+
+
 ```ts
-const { FederationExposesPlugin } = require("federation-exposes-plugin");
+const { returnMFConfig } = require("federation-exposes-plugin");
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 const { dependencies } = require(path.resolve('./', 'package.json'))
 
 module.exports = {
   plugins: [
-    new FederationExposesPlugin({
+    new ModuleFederationPlugin(returnMFConfig({
       name: 'my_app', // this will be used by the consuming federation host
       exposesOpts: {
         // paths glob to the exposes
@@ -32,15 +38,12 @@ module.exports = {
       shared: {
         ...dependencies
       }
-    }),
+    })),
   ],
 };
 ```
 
-## 例子
-
-1. 批量生成expose对象
-2. 调整expose namescope使其符合`emp-tune-dts-plugin`的类型规则。
+生成的产物示例如下
 
 ```json
 // src/components/Button/index.tsx
