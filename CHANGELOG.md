@@ -1,3 +1,16 @@
+# v0.0.6 (Tue Jul 20 2021)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of https://github.com/ron0115/federation-exposes-plugin ([@ron0115](https://github.com/ron0115))
+- fix: remove webpack ([@ron0115](https://github.com/ron0115))
+
+#### Authors: 1
+
+- Ron0115 ([@ron0115](https://github.com/ron0115))
+
+---
+
 # v0.0.5 (Thu Jul 15 2021)
 
 #### ⚠️ Pushed to `master`
