@@ -61,18 +61,18 @@ type Options = {
   },
   remotes?: Record<string, string>
   shared?: Record<string, string>
-  filename?: string
+  federationConfig: Record<string, string>
 }
 const returnMFConfig = ({
   name = 'app',
   exposesOpts = {},
   remotes = {},
   shared = {},
-  filename = ''
+  federationConfig = {}
 }: Options) => ({
   name,
   library: { type: 'var', name },
-  filename: filename || `${name}.js`,
+  filename: `${name}.js`,
   // Shared: returnShared(shared),
   shared: {
     // ...dependencies,
@@ -96,8 +96,9 @@ const returnMFConfig = ({
     exclude: exposesOpts.exclude,
     removePrefix: exposesOpts.removePrefix
   }),
-  remotes
-  // ...prepareRemotesObject(remotes)
+  // Remotes
+  ...prepareRemotesObject(remotes),
+  ...federationConfig
 })
 
 class FederationExposesPlugin {
