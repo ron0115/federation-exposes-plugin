@@ -59,14 +59,14 @@ type Options = {
     exclude?: RegExp
     removePrefix?: string
   },
-  remotes?: string[]
+  remotes?: Record<string, string>
   shared?: Record<string, string>
   filename?: string
 }
 const returnMFConfig = ({
   name = 'app',
   exposesOpts = {},
-  remotes = [],
+  remotes = {},
   shared = {},
   filename = ''
 }: Options) => ({
@@ -96,7 +96,8 @@ const returnMFConfig = ({
     exclude: exposesOpts.exclude,
     removePrefix: exposesOpts.removePrefix
   }),
-  ...prepareRemotesObject(remotes)
+  remotes
+  // ...prepareRemotesObject(remotes)
 })
 
 class FederationExposesPlugin {
@@ -109,6 +110,7 @@ class FederationExposesPlugin {
 export {
   returnPaths,
   prepareExposesObject,
+  prepareRemotesObject,
   returnMFConfig,
   returnRemotes,
   FederationExposesPlugin
