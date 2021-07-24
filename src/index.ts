@@ -2,6 +2,7 @@
 
 import glob from 'glob'
 import path from 'path'
+import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin'
 
 const returnPaths = (globs:string[] = [], storiesExtension = /\.?stories\./) => {
   return globs
@@ -98,9 +99,17 @@ const returnMFConfig = ({
   ...prepareRemotesObject(remotes)
 })
 
+class FederationExposesPlugin {
+  constructor(options: Options) {
+    // eslint-disable-next-line no-constructor-return
+    return new ModuleFederationPlugin(returnMFConfig(options))
+  }
+}
+
 export {
   returnPaths,
   prepareExposesObject,
   returnMFConfig,
   returnRemotes,
+  FederationExposesPlugin
 }
