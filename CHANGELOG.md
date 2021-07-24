@@ -1,3 +1,17 @@
+# v0.0.7 (Sat Jul 24 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: revert ([@ron0115](https://github.com/ron0115))
+- Merge branch 'master' of https://github.com/ron0115/federation-exposes-plugin ([@ron0115](https://github.com/ron0115))
+- chore: docs ([@ron0115](https://github.com/ron0115))
+
+#### Authors: 1
+
+- Ron0115 ([@ron0115](https://github.com/ron0115))
+
+---
+
 # v0.0.6 (Tue Jul 20 2021)
 
 #### ⚠️ Pushed to `master`
