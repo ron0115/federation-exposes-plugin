@@ -1,3 +1,16 @@
+# v0.0.10 (Mon Jul 26 2021)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of https://github.com/ron0115/federation-exposes-plugin ([@ron0115](https://github.com/ron0115))
+- feat: add option to override config ([@ron0115](https://github.com/ron0115))
+
+#### Authors: 1
+
+- Ron0115 ([@ron0115](https://github.com/ron0115))
+
+---
+
 # v0.0.9 (Sat Jul 24 2021)
 
 #### ⚠️ Pushed to `master`
