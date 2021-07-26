@@ -61,14 +61,14 @@ type Options = {
   },
   remotes?: Record<string, string>
   shared?: Record<string, string>
-  federationConfig: Record<string, string>
+  override: Record<string, string>
 }
 const returnMFConfig = ({
   name = 'app',
   exposesOpts = {},
   remotes = {},
   shared = {},
-  federationConfig = {}
+  override = {}
 }: Options) => ({
   name,
   library: { type: 'var', name },
@@ -98,7 +98,7 @@ const returnMFConfig = ({
   }),
   // Remotes
   ...prepareRemotesObject(remotes),
-  ...federationConfig
+  ...override
 })
 
 class FederationExposesPlugin {
